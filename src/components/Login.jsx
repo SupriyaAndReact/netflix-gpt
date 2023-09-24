@@ -17,6 +17,12 @@ const Login = () => {
 
     const toggleSignIn = () => {
         setSignIn(!isSignIn)
+        if(name?.current?.value)       
+            name.current.value = ""
+        if(email?.current?.value)
+            email.current.value = ""
+        if(password?.current?.value)
+            password.current.value = ""
     }
 
     const handleButtonClick = () => {
@@ -57,8 +63,8 @@ const Login = () => {
     return <div>
         <Header />
         <div className="absolute">
-        <img src={BG_URL} alt='bg-img'/></div>
-        <form className="w-4/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white bg-opacity-80" onSubmit={(event)=> event.preventDefault()}>
+        <img className="h-screen object-cover" src={BG_URL} alt='bg-img'/></div>
+        <form className="w-full md:w-4/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white bg-opacity-80" onSubmit={(event)=> event.preventDefault()}>
             <h1 className="font-bold text-3xl py-4">{isSignIn ? 'Sign In' : 'Sign Up '}</h1>
             {!isSignIn? <input type="text" className="p-4 my-4 w-full bg-gray-700 rounded-md" ref={name} placeholder="Full name" /> : ''}
             <input type="text" className="p-4 my-4 w-full bg-gray-700 rounded-md" ref={email} placeholder="Email address" />

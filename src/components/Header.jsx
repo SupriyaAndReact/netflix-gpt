@@ -44,9 +44,9 @@ const Header = () => {
         return ()=> unSubscribe()
     },[])
 
-    return <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between">
-        <img className="w-44" src={logoURL} alt='logo' />
-        {user && (<div className="flex p-2">
+    return <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between">
+        <img className="w-44 mx-auto md:mx-0" src={logoURL} alt='logo' />
+        {user && (<div className="flex p-2 justify-between">
           { showGptSearch &&
             <select className="p-2 m-2 my-4 h-12 bg-gray-900 text-white" onChange={handleLanguageChange}>
               {SUPPORTED_LANGUAGES.map((lang) => (
@@ -59,8 +59,8 @@ const Header = () => {
             <button className="py-0 h-12 px-4  mx-4 my-4 text-white bg-purple-800 rounded-lg cursor-pointer" onClick={handleGptSearchClick}>
                 {showGptSearch ? "Homepage" : "GPT Search"}
             </button>
-            <img className='w-12 h-11 my-4' src={user?.photoURL} alt='usericon' />
-            <button className="font-bold text-white cursor-pointer" onClick={handleSignOut}>(Sign Out)</button>
+            <img className='hidden md:inline-block w-10 h-9 my-6' src={user?.photoURL} alt='usericon' />
+            <button className="font-bold text-white cursor-pointer mx-2" onClick={handleSignOut}>Sign Out</button>
         </div>)}
     </div>
 }
