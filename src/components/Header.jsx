@@ -7,6 +7,7 @@ import { addUser, removeUser } from "../utils/userSlice";
 import { SUPPORTED_LANGUAGES, logoURL } from "../utils/constants";
 import { toggleGptSearchView } from "../utils/gptSlice";
 import { changeLanguage } from "../utils/configSlice";
+import { FiLogOut } from "react-icons/fi";
 
 const Header = () => {
     const navigate =useNavigate()
@@ -56,11 +57,12 @@ const Header = () => {
               ))}
             </select>
           }
-            <button className="py-0 h-12 px-4  mx-4 my-4 text-white bg-purple-800 rounded-lg cursor-pointer" onClick={handleGptSearchClick}>
-                {showGptSearch ? "Homepage" : "GPT Search"}
+            <button className="py-0 h-12 px-4  mx-4 my-4 bg-red-700 text-white rounded-lg cursor-pointer" onClick={handleGptSearchClick}>
+                {showGptSearch ? "Homepage" : "GPT Search"} 
             </button>
             <img className='hidden md:inline-block w-10 h-9 my-6' src={user?.photoURL} alt='usericon' />
-            <button className="font-bold text-white cursor-pointer mx-2" onClick={handleSignOut}>Sign Out</button>
+            <button className="font-bold text-white cursor-pointer mx-2" onClick={handleSignOut}>Sign Out <FiLogOut className="inline" />
+            </button>
         </div>)}
     </div>
 }

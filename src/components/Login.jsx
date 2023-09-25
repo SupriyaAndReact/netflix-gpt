@@ -64,11 +64,11 @@ const Login = () => {
         <Header />
         <div className="absolute">
         <img className="h-screen object-cover" src={BG_URL} alt='bg-img'/></div>
-        <form className="w-full md:w-4/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white bg-opacity-80" onSubmit={(event)=> event.preventDefault()}>
+        <form className="w-full md:w-4/12 absolute p-12 bg-gray-900 my-36 mx-auto right-0 left-0 text-white bg-opacity-80" onSubmit={(event)=> event.preventDefault()}>
             <h1 className="font-bold text-3xl py-4">{isSignIn ? 'Sign In' : 'Sign Up '}</h1>
             {!isSignIn? <input type="text" className="p-4 my-4 w-full bg-gray-700 rounded-md" ref={name} placeholder="Full name" /> : ''}
             <input type="text" className="p-4 my-4 w-full bg-gray-700 rounded-md" ref={email} placeholder="Email address" />
-            <input type="password" className="p-4 my-4 w-full bg-gray-700 rounded-md" ref={password} placeholder="Password" />
+            <input type="password" className="p-4 my-4 w-full bg-gray-700 rounded-md border-none focus:border border-blue-700" ref={password} placeholder="Password" />
             <p className="text-red-500 font-bold text-lg py-2">{errorMessage}</p>
             <button className="p-4 my-6 bg-red-700 w-full rounded-md" onClick={handleButtonClick}>Sign In</button>
             <p className="p-4 cursor-pointer" onClick={toggleSignIn}>{isSignIn? 'New to Netflix? Sign up now' : 'Already registered? Sign in now'}</p>
